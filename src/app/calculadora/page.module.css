@@ -1,0 +1,437 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 2rem;
+}
+
+/* Background glows */
+.glowBlob1 {
+  position: absolute;
+  top: -10%;
+  left: 15%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, var(--glow-opacity)) 0%, rgba(236, 72, 153, 0) 70%);
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.glowBlob2 {
+  position: absolute;
+  bottom: -5%;
+  right: 10%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(236, 72, 153, var(--glow-opacity)) 0%, rgba(139, 92, 246, 0) 70%);
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.header {
+  width: 100%;
+  max-width: 1200px;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.logoArea {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  letter-spacing: -0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.backBtn {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.backBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--card-hover-border);
+}
+
+.mainLayout {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 2rem;
+  z-index: 10;
+  margin-top: 1rem;
+}
+
+@media (max-width: 900px) {
+  .mainLayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Calculator Card */
+.calcCard {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px var(--shadow-color);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Display Panel */
+.displayPanel {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  padding: 1.25rem;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  word-break: break-all;
+  overflow: hidden;
+}
+
+.expressionDisplay {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  min-height: 1.5rem;
+  width: 100%;
+  text-align: right;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.resultDisplay {
+  font-family: var(--font-mono);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: right;
+  width: 100%;
+  overflow-y: auto;
+  max-height: 100px;
+  line-height: 1.2;
+}
+
+@media (max-width: 480px) {
+  .resultDisplay {
+    font-size: 1.6rem;
+  }
+}
+
+/* Config / Memory Control */
+.controlRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.precisionControl {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.precisionLabel {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.precisionInput {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--card-border);
+  color: #ffffff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  width: 60px;
+  text-align: center;
+}
+
+.precisionInput:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.memBar {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.memBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.memBtn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
+.memBtnActive {
+  color: var(--accent);
+  text-shadow: 0 0 5px rgba(236, 72, 153, 0.5);
+}
+
+/* Keypad Grid */
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.65rem;
+}
+
+@media (max-width: 480px) {
+  .keypad {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .keypad button[data-adv="true"] {
+    grid-column: span 1;
+  }
+}
+
+.key {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 500;
+  padding: 1.1rem 0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.key:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--card-hover-border);
+  transform: translateY(-1px);
+}
+
+.key:active {
+  transform: scale(0.95);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Highlight Keys styling */
+.keyNum {
+  background: rgba(255, 255, 255, 0.05);
+  font-weight: 600;
+}
+
+.keyOp {
+  background: rgba(99, 102, 241, 0.1);
+  color: #a5b4fc;
+  border-color: rgba(99, 102, 241, 0.15);
+  font-weight: 600;
+}
+
+.keyOp:hover {
+  background: rgba(99, 102, 241, 0.2);
+}
+
+.keyAdv {
+  background: rgba(236, 72, 153, 0.08);
+  color: #f472b6;
+  border-color: rgba(236, 72, 153, 0.15);
+  font-size: 1rem;
+}
+
+.keyAdv:hover {
+  background: rgba(236, 72, 153, 0.15);
+}
+
+.keyClear {
+  background: rgba(239, 68, 68, 0.1);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.15);
+}
+
+.keyClear:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+.keyEquals {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: var(--button-text);
+  border: none;
+  font-weight: 700;
+  font-size: 1.4rem;
+  grid-column: span 1;
+}
+
+.keyEquals:hover {
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* History Side Panel */
+.historyPanel {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  max-height: 520px;
+  box-shadow: 0 8px 32px var(--shadow-color);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.historyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.historyTitle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.historyClearBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.historyClearBtn:hover {
+  color: #f87171;
+}
+
+.historyList {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-right: 0.25rem;
+}
+
+.historyItem {
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.historyItem:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.historyExpr {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  width: 100%;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.historyRes {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  width: 100%;
+  text-align: right;
+  word-break: break-all;
+  max-height: 60px;
+  overflow-y: auto;
+}
+
+.emptyHistory {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 2rem 0;
+}
