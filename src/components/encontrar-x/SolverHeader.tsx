@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "@/app/encontrar-x/page.module.css";
 
-export default function CalcHeader() {
+export default function SolverHeader() {
   const pathname = usePathname();
 
   return (
@@ -13,7 +13,7 @@ export default function CalcHeader() {
         <Link href="/" className={styles.logo}>
           InfiniMath<span className={styles.logoDot} />
         </Link>
-        <span className={styles.headerBadge}>Científica / Precisão</span>
+        <span className={styles.headerBadge}>Solucionador de X</span>
       </div>
 
       {/* Seletor rápido de ferramentas do InfiniMath */}
