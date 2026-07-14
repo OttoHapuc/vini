@@ -5,9 +5,9 @@ export default function Hero() {
   return (
     <section className={styles.hero}>
       <span className={styles.badge}>A Nova Era dos Cálculos de Alta Precisão</span>
-      {/* <h1 className={styles.title}>
-        Cálculos sem Limites.<br />Precisão Infinita.
-      </h1> */}
+      <h1 className={styles.title}>
+        Cálculos sem Limites.<br />Precisão Infinitamente.
+      </h1>
       <p className={styles.subtitle}>
         Conheça o <strong>InfiniMath</strong>, o motor matemático definitivo projetado para cientistas, engenheiros e analistas. Calcule fatoriais gigantescos, exponenciações absurdas e operações complexas com até 1.000 dígitos de precisão exata.
       </p>
