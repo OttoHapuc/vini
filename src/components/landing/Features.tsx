@@ -50,6 +50,20 @@ export default function Features() {
             Uma linha do tempo de operações que armazena os cálculos mais complexos que você realizou na sessão, permitindo restaurar qualquer expressão em um clique.
           </p>
         </div>
+
+        {/* Card 4 - Encontrar o X */}
+        <div className={styles.card}>
+          <div className={styles.cardIcon}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+          <h3 className={styles.cardTitle}>Solucionador &quot;Encontrar o X&quot;</h3>
+          <p className={styles.cardDescription}>
+            Resolva Regra de 3 Simples e Composta, proporções e equações de 1º e 2º grau (Bhaskara) com demonstração visual passo a passo de cada etapa do cálculo.
+          </p>
+        </div>
       </div>
     </section>
   );

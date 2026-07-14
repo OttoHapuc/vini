@@ -14,6 +14,9 @@ export default function Header() {
         <a href="#precos" className={styles.navLink}>
           Preços
         </a>
+        <Link href="/encontrar-x" className={styles.navLink}>
+          Encontrar o X
+        </Link>
         <a href="#depoimentos" className={styles.navLink}>
           Depoimentos
         </a>
